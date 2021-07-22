@@ -31,4 +31,14 @@ public class RecipeController {
     public ResponseEntity<Void> deleteRecipe(@PathVariable long id) {
         return recipeService.delete(id);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Void> updateRecipe(@PathVariable long id, @RequestBody @Valid Recipe recipe) {
+        return recipeService.update(id, recipe);
+    }
+
+    @GetMapping("/search")
+    public Object searchRecipe(@RequestParam(required = false) String category, @RequestParam(required = false) String name) {
+        return recipeService.searchRecipe(category, name);
+    }
 }

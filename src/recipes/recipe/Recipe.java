@@ -9,6 +9,8 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -34,4 +36,10 @@ public class Recipe {
     @NotEmpty
     @ElementCollection()
     private List<String> directions;
+
+    @NotBlank
+    private String category;
+
+    @NotBlank
+    private String date = LocalDateTime.now().toString();
 }
