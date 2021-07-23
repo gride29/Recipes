@@ -1,6 +1,5 @@
 package recipes.recipe;
 
-
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,7 +37,8 @@ public class RecipeController {
     }
 
     @GetMapping("/search")
-    public Object searchRecipe(@RequestParam(required = false) String category, @RequestParam(required = false) String name) {
+    public Object searchRecipe(@RequestParam(required = false) String category,
+                               @RequestParam(required = false) String name) {
         return recipeService.searchRecipe(category, name);
     }
 }
